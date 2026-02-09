@@ -1,8 +1,29 @@
 ## Service-Integration-Monitoring-Dashboard
 
-Backend monitoring dashboard that tracks service health, throughput, latency, and failure rates across multiple backend services. It is designed to feel like a real internal tool used by engineering teams during releases and production support.
+A monitoring dashboard that helps **product, engineering, and SRE teams see the health of critical services at a glance**, so they can **spot customer‑impacting issues early and prioritize the right fixes**.
+
+Instead of digging through raw logs or multiple vendor tools, this dashboard brings together **service availability, latency, errors, and throughput** in one place and ties them to **business‑meaningful services** (e.g., “Payments API”, “Orders API”) and **realistic incident timelines**.
 
 Built with **PostgreSQL**, **FastAPI**, and **Streamlit**, and fully runnable via **Docker Compose**.
+
+---
+
+### Business Context & Real‑World Problem
+
+Modern platforms are composed of dozens of services owned by different teams. When a release goes wrong or a customer reports slowness, teams often spend **hours correlating logs, metrics, and incident notes** across tools (APM, ticketing, chat, wikis).
+
+This project is modeled after the kind of **internal “single pane of glass”** many organizations build for themselves. It is meant to answer questions like:
+
+- **“Which services are currently at risk of breaching our SLOs?”**
+- **“Did the latest release hurt checkout latency or error rates for the payments flow?”**
+- **“Where did throughput drop off this morning, and which team owns that service?”**
+- **“What were the last incidents for this service, and what was the root cause?”**
+
+Out of the box, it simulates **30 days of realistic traffic patterns and incidents** so you can demo or practice:
+
+- Running a **release review** or **production readiness review**.
+- Walking through a **post‑incident analysis** with metrics and notes in one view.
+- Helping a new engineer or SRE quickly understand **how the system behaves in production**.
 
 ---
 
@@ -353,8 +374,8 @@ Update this section with actual images as you capture them.
 
 ### Project Summary
 
-This repository contains a production-style monitoring dashboard for backend services, built with PostgreSQL, FastAPI, and Streamlit, and runnable end-to-end with a single `docker compose up --build`.  
-The system models services, per-request and job-run events, and incident notes, and seeds 30 days of realistic traffic patterns so the dashboard is immediately informative.  
+This repository provides a **production-style monitoring and observability dashboard** for backend services, designed to feel like an internal tool used by real teams. With a single `docker compose up --build`, you get a **PostgreSQL + FastAPI + Streamlit stack** that surfaces service health, latency, errors, and throughput in business‑friendly views.
+The system models services, per-request and job-run events, and incident notes, and seeds 30 days of realistic traffic patterns so the dashboard is immediately informative for demos, training, and interviews.  
 FastAPI exposes health, services, and metrics endpoints that compute success rate, latency percentiles, throughput, error rates, and a rule-based health score, while Streamlit consumes those APIs to render overview KPIs, latency, error, and throughput views with interactive filters.  
-The refresh job and automated tests complete the operational story, demonstrating how this dashboard could be used by SRE and backend engineering teams during releases and production support.
+The refresh job and automated tests complete the operational story, showing how this dashboard could underpin **operational readiness reviews, incident response, and ongoing reliability reporting** for engineering and business stakeholders.
 
